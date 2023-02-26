@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+
+{% block contenu %}
+
+<br>
+<div class="row">
+
+	<div class="col-md-7">
+		<h4>Credits:</h4>
+		
+		<div class="card card-body shadow">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'ajout_credit'%}">Ajouter un credit</a>
+			<table class="table table-sm">
+				<tr>
+					<th>ID</th>
+					<th>client</th>
+					<th>Montant</th>
+					<th>Etat</th>
+					<th>Date credit </th>
+					<th>Date update </th>
+					<th>Mise à Jour</th>
+					<th>Supprimer</th>
+				</tr>
+				{% for credit in credits %}
+			    </tr>
+				<td>{{credit.id}}</td>
+				<td>{{credit.client}}</td>
+				<td>{{credit.montant_credit}}</td>
+				<td>{{credit.etat}}</td>
+				<td>{{credit.date_credit}}</td>
+				<td>{{credit.date_update}}</td>
+				<td><a class='btn btn-sm btn-success' href="{% url 'modifier_credit' credit.id %}">Modifier</a></td>
+				<td><a class='btn btn-sm btn-danger' href="{% url 'supprimer_credit' credit.id %}">Supprimer</a></td>
+			    </tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block contenu %}
+
+<div class="col-md-5">
+    <h4>Client</h4>
+    
+    <div class="card card-body">
+        <table class="table table-sm">
+            <form action="" method="POST"    >
+                {% csrf_token %}
+                {{form}}
+                <input class="btn btn-primary  btn-sm btn-block" type="submit" name ="Envoyer">
+            </form>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

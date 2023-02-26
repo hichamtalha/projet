@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block contenu %}
+
+<br>
+<div class="row">
+
+	<div class="col-md-7">
+		<h4>Produits:</h4>
+		
+		<div class="card card-body shadow">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'ajout_produit'%}">Ajouter un produit</a>
+			<table class="table table-sm">
+				<tr>
+					<th>ID</th>
+					<th>Nom</th>
+					<th>Description</th>
+					<th>Prix </th>
+					<th>Quantité </th>
+					<th>Mise à Jour</th>
+					<th>Supprimer</th>
+				</tr>
+				{% for produit in produits %}
+			    </tr>
+				<td>{{produit.id}}</td>
+				<td>{{produit.nom}}</td>
+				<td>{{produit.description}}</td>
+				<td>{{produit.prix}}</td>
+				<td>{{produit.quantite}}</td>
+				<td><a class='btn btn-sm btn-success' href="{% url 'modifier_produit' produit.id %}">Modifier</a></td>
+				<td><a class='btn btn-sm btn-danger' href="{% url 'supprimer_produit' produit.id %}">Supprimer</a></td>
+			    </tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+

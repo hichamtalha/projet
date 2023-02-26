@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+
+{% block contenu %}
+
+<br>
+
+
+	<div class="col-md-7">
+		<h4>Commandes:</h4>
+		
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Ajouter commande</a>
+			<table class="table table-sm">
+				<tr>
+					<th>ID</th>
+					<th>client</th>
+					<th>produit </th>
+					<th>Quantité</th>
+                    <th>date commande</th>
+                    <th>statut</th>
+
+				</tr>
+				{% for commande in commandes %}
+			    </tr>
+				<td>{{commande.id}}</td>
+				<td>{{commande.client}}</td>
+				<td>{{commande.produit}}</td>
+				<td>{{commande.quantite}}</td>
+				<td>{{commande.date_creation}}</td>
+				<td>{{commande.statut}}</td>
+
+			    </tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+
+{% block contenu %}
+
+<br>
+<div class="row">
+	<div class="col-md-5">
+		<h4>Clients:</h4>
+		
+		<div class="card card-body shadow">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'ajout_client'%}">Ajouter Un Client</a>
+			<table class="table table-sm">
+				<tr>
+					<th>ID</th>
+					<th>Client</th>
+					<th>Phone</th>
+					<th>Détails</th>
+				</tr>
+				{% for client in clients %}
+			    </tr>
+				<td><a href="{% url 'client' client.id %}">{{client.id}}</a></td>
+				<td><a href="{% url 'client' client.id %}">{{client.nom}}</a></td>
+				<td>{{client.phone}}</td>
+				<td><a class='btn btn-sm btn-info' href="{% url 'client' client.id %}">Détails</a></td>
+			    </tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h4>Credits:</h4>
+		
+		<div class="card card-body shadow">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'ajout_credit'%}">Ajouter un credit</a>
+			<table class="table table-sm">
+				<tr>
+					<th>ID</th>
+					<th>client</th>
+					<th>Montant</th>
+					<th>Etat</th>
+					<th>Date credit </th>
+					<th>Date update </th>
+					<th>Mise à Jour</th>
+					<th>Supprimer</th>
+				</tr>
+				{% for credit in credits %}
+			    </tr>
+				<td><a href="{% url 'crd' %}">{{credit.id}}</a></td>
+				<td><a href="{% url 'crd' %}">{{credit.client}}</a></td>
+				<td>{{credit.montant_credit}}</td>
+				<td>{{credit.etat}}</td>
+				<td>{{credit.date_credit}}</td>
+				<td>{{credit.date_update}}</td>
+				<td><a class='btn btn-sm btn-success' href="{% url 'modifier_credit' credit.id %}">Modifier</a></td>
+				<td><a class='btn btn-sm btn-danger' href="{% url 'supprimer_credit' credit.id %}">Supprimer</a></td>
+			    </tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
